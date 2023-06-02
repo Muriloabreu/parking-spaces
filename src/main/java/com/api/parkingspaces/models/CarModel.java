@@ -26,5 +26,75 @@ public class CarModel {
 	private String colorCar;
 	@Column(nullable = false)
 	private LocalDateTime registrationDate;
+	
+	/* Constructor */
+	
+	public CarModel() {
+		super();
+	}
+
+	public CarModel(Long id, String licensePlateCar, String brandCar, String modelCar, String colorCar,
+			LocalDateTime registrationDate) {
+		super();
+		this.id = id;
+		this.licensePlateCar = licensePlateCar;
+		this.brandCar = brandCar;
+		this.modelCar = modelCar;
+		this.colorCar = colorCar;
+		this.registrationDate = registrationDate;
+	}
+	
+	/* Accessor Methods */
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getLicensePlateCar() {
+		return licensePlateCar;
+	}
+
+	public void setLicensePlateCar(String licensePlateCar) {
+		this.licensePlateCar = licensePlateCar;
+	}
+
+	public String getBrandCar() {
+		return brandCar;
+	}
+
+	public void setBrandCar(String brandCar) {
+		this.brandCar = brandCar;
+	}
+
+	public String getModelCar() {
+		return modelCar;
+	}
+
+	public void setModelCar(String modelCar) {
+		this.modelCar = modelCar;
+	}
+
+	public String getColorCar() {
+		return colorCar;
+	}
+
+	public void setColorCar(String colorCar) {
+		this.colorCar = colorCar;
+	}
+
+	public LocalDateTime getRegistrationDate() {
+		return registrationDate;
+	}
+
+	public void setRegistrationDate(LocalDateTime registrationDate) {
+		this.registrationDate = registrationDate;
+	}
+	
+	
+	
 
 }
