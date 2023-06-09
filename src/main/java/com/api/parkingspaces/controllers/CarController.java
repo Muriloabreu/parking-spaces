@@ -25,7 +25,7 @@ import jakarta.validation.Valid;
 
 @Controller
 @CrossOrigin(originPatterns = "*", maxAge = 3600) /*Para permitir ser acessado de qualquer fonte*/
-@RequestMapping("/acompanha-aluno/classdiarys") /*Mapeamento a nível de classe*/
+@RequestMapping("/parking-spaces/cars") /*Mapeamento a nível de classe*/
 public class CarController {
 	
 	@Autowired
