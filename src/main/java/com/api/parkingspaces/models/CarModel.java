@@ -1,12 +1,15 @@
 package com.api.parkingspaces.models;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,15 +29,17 @@ public class CarModel {
 	private String colorCar;
 	@Column(nullable = false)
 	private LocalDateTime registrationDate;
+	@ManyToOne
+	@JoinColumn(name = "responsibleCar_id" )
+	private ResponsibleCarModel responsibleCarModel;
 	
 	/* Constructor */
 	
 	public CarModel() {
-		super();
 	}
 
 	public CarModel(Long id, String licensePlateCar, String brandCar, String modelCar, String colorCar,
-			LocalDateTime registrationDate) {
+			LocalDateTime registrationDate, ResponsibleCarModel responsibleCarModel) {
 		super();
 		this.id = id;
 		this.licensePlateCar = licensePlateCar;
@@ -42,8 +47,11 @@ public class CarModel {
 		this.modelCar = modelCar;
 		this.colorCar = colorCar;
 		this.registrationDate = registrationDate;
+		this.responsibleCarModel = responsibleCarModel;
 	}
-	
+
+
+
 	/* Accessor Methods */
 
 	public Long getId() {
@@ -92,6 +100,41 @@ public class CarModel {
 
 	public void setRegistrationDate(LocalDateTime registrationDate) {
 		this.registrationDate = registrationDate;
+	}
+
+	public ResponsibleCarModel getResponsibleCarModel() {
+		return responsibleCarModel;
+	}
+
+	public void setResponsibleCarModel(ResponsibleCarModel responsibleCarModel) {
+		this.responsibleCarModel = responsibleCarModel;
+	}
+
+	@Override
+	public String toString() {
+		return "CarModel [id=" + id + ", licensePlateCar=" + licensePlateCar + ", brandCar=" + brandCar + ", modelCar="
+				+ modelCar + ", colorCar=" + colorCar + ", registrationDate=" + registrationDate
+				+ ", responsibleCarModel=" + responsibleCarModel + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(brandCar, colorCar, id, licensePlateCar, modelCar, registrationDate, responsibleCarModel);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CarModel other = (CarModel) obj;
+		return Objects.equals(brandCar, other.brandCar) && Objects.equals(colorCar, other.colorCar)
+				&& Objects.equals(id, other.id) && Objects.equals(licensePlateCar, other.licensePlateCar)
+				&& Objects.equals(modelCar, other.modelCar) && Objects.equals(registrationDate, other.registrationDate)
+				&& Objects.equals(responsibleCarModel, other.responsibleCarModel);
 	}
 	
 	
