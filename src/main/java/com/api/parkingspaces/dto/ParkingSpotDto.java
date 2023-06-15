@@ -12,7 +12,9 @@ import jakarta.validation.constraints.NotNull;
 public class ParkingSpotDto {
 	
 	@NotBlank
-	private String parkingSpotNumber;
+	private String parkingSpotNumberparkingSpotNumberA;
+	@NotBlank
+	private String parkingSpotNumberparkingSpotNumberB;
 	@NotNull
 	List<CarModel> cars;
 	@NotBlank
@@ -25,41 +27,56 @@ public class ParkingSpotDto {
 	public ParkingSpotDto() {
 		
 	}
-
-	public ParkingSpotDto(@NotBlank String parkingSpotNumber, @NotNull List<CarModel> cars,
+	public ParkingSpotDto(@NotBlank String parkingSpotNumberparkingSpotNumberA,
+			@NotBlank String parkingSpotNumberparkingSpotNumberB, @NotNull List<CarModel> cars,
 			@NotBlank ResponsibleCarModel responsibleCar, @NotBlank String apartment, @NotBlank String block) {
 		super();
-		this.parkingSpotNumber = parkingSpotNumber;
+		this.parkingSpotNumberparkingSpotNumberA = parkingSpotNumberparkingSpotNumberA;
+		this.parkingSpotNumberparkingSpotNumberB = parkingSpotNumberparkingSpotNumberB;
 		this.cars = cars;
 		this.responsibleCar = responsibleCar;
 		this.apartment = apartment;
 		this.block = block;
 	}
-
-	@Override
-	public String toString() {
-		return "ParkingSpotService [parkingSpotNumber=" + parkingSpotNumber + ", cars=" + cars + ", responsibleCar="
-				+ responsibleCar + ", apartment=" + apartment + ", block=" + block + "]";
+	public String getParkingSpotNumberparkingSpotNumberA() {
+		return parkingSpotNumberparkingSpotNumberA;
+	}
+	public void setParkingSpotNumberparkingSpotNumberA(String parkingSpotNumberparkingSpotNumberA) {
+		this.parkingSpotNumberparkingSpotNumberA = parkingSpotNumberparkingSpotNumberA;
+	}
+	public String getParkingSpotNumberparkingSpotNumberB() {
+		return parkingSpotNumberparkingSpotNumberB;
+	}
+	public void setParkingSpotNumberparkingSpotNumberB(String parkingSpotNumberparkingSpotNumberB) {
+		this.parkingSpotNumberparkingSpotNumberB = parkingSpotNumberparkingSpotNumberB;
+	}
+	public List<CarModel> getCars() {
+		return cars;
+	}
+	public void setCars(List<CarModel> cars) {
+		this.cars = cars;
+	}
+	public ResponsibleCarModel getResponsibleCar() {
+		return responsibleCar;
+	}
+	public void setResponsibleCar(ResponsibleCarModel responsibleCar) {
+		this.responsibleCar = responsibleCar;
+	}
+	public String getApartment() {
+		return apartment;
+	}
+	public void setApartment(String apartment) {
+		this.apartment = apartment;
+	}
+	public String getBlock() {
+		return block;
+	}
+	public void setBlock(String block) {
+		this.block = block;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(apartment, block, cars, parkingSpotNumber, responsibleCar);
-	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ParkingSpotDto other = (ParkingSpotDto) obj;
-		return Objects.equals(apartment, other.apartment) && Objects.equals(block, other.block)
-				&& Objects.equals(cars, other.cars) && Objects.equals(parkingSpotNumber, other.parkingSpotNumber)
-				&& Objects.equals(responsibleCar, other.responsibleCar);
-	}
+	
 	
 	
 	
