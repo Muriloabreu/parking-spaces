@@ -6,5 +6,8 @@ import com.api.parkingspaces.models.ParkingSpotModel;
 
 public interface ParkingSpotRepository extends JpaRepository<ParkingSpotModel, Long> {
 	
-	boolean existsByParkingSpotNumber(String name);
+	boolean existsByParkingSpotNumberA(String name);
+	boolean existsByParkingSpotNumberB(String name);
+	boolean existsByLicensePlateCar(String licensePlateCar);
+	boolean existsByApartmentAndBlock(String apartment, String block);
 }
