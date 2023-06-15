@@ -22,8 +22,10 @@ public class ParkingSpotModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(nullable = false, unique = true, length = 10)
-	private String parkingSpotNumber;
+	@Column(nullable = true, unique = true, length = 10)
+	private String parkingSpotNumberA;
+	@Column(nullable = true, unique = true, length = 10)
+	private String parkingSpotNumberB;
 	@OneToMany
 	@JoinColumn(name = "parkingspot_id")
 	List<CarModel> cars = new ArrayList<>();
@@ -40,17 +42,20 @@ public class ParkingSpotModel {
 	public ParkingSpotModel() {		
 	}
 
-	public ParkingSpotModel(Long id, String parkingSpotNumber, List<CarModel> cars, ResponsibleCarModel responsibleCar,
-			LocalDateTime registrationDate, String apartment, String block) {
+	public ParkingSpotModel(Long id, String parkingSpotNumberA, String parkingSpotNumberB, List<CarModel> cars,
+			ResponsibleCarModel responsibleCar, LocalDateTime registrationDate, String apartment, String block) {
 		super();
 		this.id = id;
-		this.parkingSpotNumber = parkingSpotNumber;
+		this.parkingSpotNumberA = parkingSpotNumberA;
+		this.parkingSpotNumberB = parkingSpotNumberB;
 		this.cars = cars;
 		this.responsibleCar = responsibleCar;
 		this.registrationDate = registrationDate;
 		this.apartment = apartment;
 		this.block = block;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -60,12 +65,17 @@ public class ParkingSpotModel {
 		this.id = id;
 	}
 
-	public String getParkingSpotNumber() {
-		return parkingSpotNumber;
+	public String getParkingSpotNumberA() {
+		return parkingSpotNumberA;
 	}
-
-	public void setParkingSpotNumber(String parkingSpotNumber) {
-		this.parkingSpotNumber = parkingSpotNumber;
+	public void setParkingSpotNumberA(String parkingSpotNumberA) {
+		this.parkingSpotNumberA = parkingSpotNumberA;
+	}
+	public String getParkingSpotNumberB() {
+		return parkingSpotNumberB;
+	}
+	public void setParkingSpotNumberB(String parkingSpotNumberB) {
+		this.parkingSpotNumberB = parkingSpotNumberB;
 	}
 
 	public List<CarModel> getCars() {
@@ -110,14 +120,15 @@ public class ParkingSpotModel {
 
 	@Override
 	public String toString() {
-		return "ParkingSpotModel [id=" + id + ", parkingSpotNumber=" + parkingSpotNumber + ", cars=" + cars
-				+ ", responsibleCar=" + responsibleCar + ", registrationDate=" + registrationDate + ", apartment="
-				+ apartment + ", block=" + block + "]";
+		return "ParkingSpotModel [id=" + id + ", parkingSpotNumberA=" + parkingSpotNumberA + ", parkingSpotNumberB="
+				+ parkingSpotNumberB + ", cars=" + cars + ", responsibleCar=" + responsibleCar + ", registrationDate="
+				+ registrationDate + ", apartment=" + apartment + ", block=" + block + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(apartment, block, cars, id, parkingSpotNumber, registrationDate, responsibleCar);
+		return Objects.hash(apartment, block, cars, id, parkingSpotNumberA, parkingSpotNumberB, registrationDate,
+				responsibleCar);
 	}
 
 	@Override
@@ -131,10 +142,13 @@ public class ParkingSpotModel {
 		ParkingSpotModel other = (ParkingSpotModel) obj;
 		return Objects.equals(apartment, other.apartment) && Objects.equals(block, other.block)
 				&& Objects.equals(cars, other.cars) && Objects.equals(id, other.id)
-				&& Objects.equals(parkingSpotNumber, other.parkingSpotNumber)
+				&& Objects.equals(parkingSpotNumberA, other.parkingSpotNumberA)
+				&& Objects.equals(parkingSpotNumberB, other.parkingSpotNumberB)
 				&& Objects.equals(registrationDate, other.registrationDate)
 				&& Objects.equals(responsibleCar, other.responsibleCar);
 	}
+
+	
 	
 	
 	
