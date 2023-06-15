@@ -7,10 +7,13 @@ import com.api.parkingspaces.models.ParkingSpotModel;
 
 public interface ParkingSpotService {
 	
-	List<ParkingSpotModel> findByAll();
+	List<ParkingSpotModel> findAll();
 	Optional<ParkingSpotModel> findById(Long id);
 	ParkingSpotModel save(ParkingSpotModel parkingSpot);
 	void delete(ParkingSpotModel parkingSpot);
-	boolean existsByParkingSpotNumber(String name);
+	boolean existsByParkingSpotNumberA(String name);
+	boolean existsByParkingSpotNumberB(String name);
+	boolean existsByLicensePlateCar(String licensePlateCar);
+	boolean existsByApartmentAndBlock(String apartment, String block);
 
 }
