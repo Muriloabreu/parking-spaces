@@ -16,7 +16,7 @@ public class ParkingSpotServiceImpl implements ParkingSpotService{
 	ParkingSpotRepository rarkingSpotRepository;
 
 	@Override
-	public List<ParkingSpotModel> findByAll() {
+	public List<ParkingSpotModel> findAll() {
 		
 		return rarkingSpotRepository.findAll();
 	}
@@ -42,9 +42,27 @@ public class ParkingSpotServiceImpl implements ParkingSpotService{
 	}
 
 	@Override
-	public boolean existsByParkingSpotNumber(String name) {
-	
-		return rarkingSpotRepository.existsByParkingSpotNumber(name);
+	public boolean existsByParkingSpotNumberA(String name) {
+		
+		return rarkingSpotRepository.existsByParkingSpotNumberA(name);
+	}
+
+	@Override
+	public boolean existsByParkingSpotNumberB(String name) {
+		
+		return rarkingSpotRepository.existsByParkingSpotNumberB(name);
+	}
+
+	@Override
+	public boolean existsByLicensePlateCar(String licensePlateCar) {
+		
+		return rarkingSpotRepository.existsByLicensePlateCar(licensePlateCar);
+	}
+
+	@Override
+	public boolean existsByApartmentAndBlock(String apartment, String block) {
+		
+		return rarkingSpotRepository.existsByApartmentAndBlock(apartment, block);
 	}
 
 }
