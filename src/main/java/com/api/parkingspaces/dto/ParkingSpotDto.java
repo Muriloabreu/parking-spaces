@@ -12,11 +12,11 @@ import jakarta.validation.constraints.NotNull;
 public class ParkingSpotDto {
 	
 	@NotBlank
-	private String parkingSpotNumberparkingSpotNumberA;
+	private String parkingSpotNumberA;
 	@NotBlank
-	private String parkingSpotNumberparkingSpotNumberB;
+	private String parkingSpotNumberB;
 	@NotNull
-	List<CarModel> cars;
+	private List<CarModel> cars;
 	@NotBlank
 	private ResponsibleCarModel responsibleCar;
 	@NotBlank
@@ -27,29 +27,35 @@ public class ParkingSpotDto {
 	public ParkingSpotDto() {
 		
 	}
-	public ParkingSpotDto(@NotBlank String parkingSpotNumberparkingSpotNumberA,
-			@NotBlank String parkingSpotNumberparkingSpotNumberB, @NotNull List<CarModel> cars,
-			@NotBlank ResponsibleCarModel responsibleCar, @NotBlank String apartment, @NotBlank String block) {
+	
+	public ParkingSpotDto(@NotBlank String parkingSpotNumberA, @NotBlank String parkingSpotNumberB,
+			@NotNull List<CarModel> cars, @NotBlank ResponsibleCarModel responsibleCar, @NotBlank String apartment,
+			@NotBlank String block) {
 		super();
-		this.parkingSpotNumberparkingSpotNumberA = parkingSpotNumberparkingSpotNumberA;
-		this.parkingSpotNumberparkingSpotNumberB = parkingSpotNumberparkingSpotNumberB;
+		this.parkingSpotNumberA = parkingSpotNumberA;
+		this.parkingSpotNumberB = parkingSpotNumberB;
 		this.cars = cars;
 		this.responsibleCar = responsibleCar;
 		this.apartment = apartment;
 		this.block = block;
 	}
-	public String getParkingSpotNumberparkingSpotNumberA() {
-		return parkingSpotNumberparkingSpotNumberA;
+	
+	public String getParkingSpotNumberA() {
+		return parkingSpotNumberA;
 	}
-	public void setParkingSpotNumberparkingSpotNumberA(String parkingSpotNumberparkingSpotNumberA) {
-		this.parkingSpotNumberparkingSpotNumberA = parkingSpotNumberparkingSpotNumberA;
+
+	public void setParkingSpotNumberA(String parkingSpotNumberA) {
+		this.parkingSpotNumberA = parkingSpotNumberA;
 	}
-	public String getParkingSpotNumberparkingSpotNumberB() {
-		return parkingSpotNumberparkingSpotNumberB;
+
+	public String getParkingSpotNumberB() {
+		return parkingSpotNumberB;
 	}
-	public void setParkingSpotNumberparkingSpotNumberB(String parkingSpotNumberparkingSpotNumberB) {
-		this.parkingSpotNumberparkingSpotNumberB = parkingSpotNumberparkingSpotNumberB;
+
+	public void setParkingSpotNumberB(String parkingSpotNumberB) {
+		this.parkingSpotNumberB = parkingSpotNumberB;
 	}
+
 	public List<CarModel> getCars() {
 		return cars;
 	}
