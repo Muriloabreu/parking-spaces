@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.api.parkingspaces.models.ParkingSpotModel;
 import com.api.parkingspaces.repositories.ParkingSpotRepository;
 
 import jakarta.transaction.Transactional;
 
+@Service
 public class ParkingSpotServiceImpl implements ParkingSpotService{
 	
 	@Autowired
@@ -35,7 +37,7 @@ public class ParkingSpotServiceImpl implements ParkingSpotService{
 	}
 
 	@Override
-	@Autowired
+	@Transactional
 	public void delete(ParkingSpotModel parkingSpot) {
 		rarkingSpotRepository.delete(parkingSpot);
 		
