@@ -13,7 +13,6 @@ public interface ParkingSpotService {
 	void delete(ParkingSpotModel parkingSpot);
 	boolean existsByParkingSpotNumberA(String name);
 	boolean existsByParkingSpotNumberB(String name);
-	boolean existsByLicensePlateCar(String licensePlateCar);
 	boolean existsByApartmentAndBlock(String apartment, String block);
 
 }
