@@ -27,7 +27,7 @@ import jakarta.validation.Valid;
 
 @Controller
 @CrossOrigin(originPatterns = "*", maxAge = 3600) /*Para permitir ser acessado de qualquer fonte*/
-@RequestMapping("/parking-spaces/responsible") /*Mapeamento a nível de classe*/
+@RequestMapping("/parking-spaces/responsibles") /*Mapeamento a nível de classe*/
 public class ResponsibleCarController {
 	
 	@Autowired
