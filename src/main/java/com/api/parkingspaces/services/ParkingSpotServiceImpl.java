@@ -56,12 +56,6 @@ public class ParkingSpotServiceImpl implements ParkingSpotService{
 	}
 
 	@Override
-	public boolean existsByLicensePlateCar(String licensePlateCar) {
-		
-		return rarkingSpotRepository.existsByLicensePlateCar(licensePlateCar);
-	}
-
-	@Override
 	public boolean existsByApartmentAndBlock(String apartment, String block) {
 		
 		return rarkingSpotRepository.existsByApartmentAndBlock(apartment, block);
