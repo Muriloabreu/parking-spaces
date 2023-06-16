@@ -1,5 +1,7 @@
 package com.api.parkingspaces.controllers;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,7 +39,7 @@ public class CarController {
 		
 		CarModel carModel = new CarModel();
 		BeanUtils.copyProperties(carDto, carModel); /*Coverte Dtos para Model*/
-		
+		carModel.setRegistrationDate(LocalDateTime.now(ZoneId.of("UTC")));
 		return ResponseEntity.status(HttpStatus.CREATED).body(carService.save(carModel));
 	}
 	
