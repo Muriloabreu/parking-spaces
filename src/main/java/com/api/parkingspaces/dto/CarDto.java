@@ -1,6 +1,9 @@
 package com.api.parkingspaces.dto;
 
+import com.api.parkingspaces.models.ResponsibleCarModel;
+
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class CarDto {
 	
@@ -12,6 +15,8 @@ public class CarDto {
 	private String modelCar;
 	@NotBlank
 	private String colorCar;
+	@NotNull
+	private ResponsibleCarModel responsibleCarModel;
 	
 	/* Constructor */
 	
@@ -19,14 +24,17 @@ public class CarDto {
 	}
 
 	public CarDto(@NotBlank String licensePlateCar, @NotBlank String brandCar, @NotBlank String modelCar,
-			@NotBlank String colorCar) {
+			@NotBlank String colorCar, @NotNull ResponsibleCarModel responsibleCarModel) {
 		super();
 		this.licensePlateCar = licensePlateCar;
 		this.brandCar = brandCar;
 		this.modelCar = modelCar;
 		this.colorCar = colorCar;
+		this.responsibleCarModel = responsibleCarModel;
 	}
-	
+
+
+
 	/* Accessor Methods */
 	
 	public String getLicensePlateCar() {
@@ -61,7 +69,13 @@ public class CarDto {
 		this.colorCar = colorCar;
 	}
 	
+	public ResponsibleCarModel getResponsibleCarModel() {
+		return responsibleCarModel;
+	}
 	
+	public void setResponsibleCarModel(ResponsibleCarModel responsibleCarModel) {
+		this.responsibleCarModel = responsibleCarModel;
+	}
 	
 
 }
