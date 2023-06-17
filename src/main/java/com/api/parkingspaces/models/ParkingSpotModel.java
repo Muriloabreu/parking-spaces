@@ -29,32 +29,24 @@ public class ParkingSpotModel {
 	@OneToMany
 	@JoinColumn(name = "parkingspot_id")
 	List<CarModel> cars = new ArrayList<>();
-	@ManyToOne
-	@JoinColumn(name = "responsiblecar_id")
-	private ResponsibleCarModel responsibleCar;
 	@Column(nullable = false)
 	private LocalDateTime registrationDate;
-	@Column(nullable = false, length = 30)
-	private String apartment;
-	@Column(nullable = false, length = 30)
-	private String block;
+	
+	
 	
 	public ParkingSpotModel() {		
 	}
 
 	public ParkingSpotModel(Long id, String parkingSpotNumberA, String parkingSpotNumberB, List<CarModel> cars,
-			ResponsibleCarModel responsibleCar, LocalDateTime registrationDate, String apartment, String block) {
+			 LocalDateTime registrationDate) {
 		super();
 		this.id = id;
 		this.parkingSpotNumberA = parkingSpotNumberA;
 		this.parkingSpotNumberB = parkingSpotNumberB;
 		this.cars = cars;
-		this.responsibleCar = responsibleCar;
 		this.registrationDate = registrationDate;
-		this.apartment = apartment;
-		this.block = block;
+		
 	}
-
 
 
 	public Long getId() {
@@ -86,14 +78,6 @@ public class ParkingSpotModel {
 		this.cars = cars;
 	}
 
-	public ResponsibleCarModel getResponsibleCar() {
-		return responsibleCar;
-	}
-
-	public void setResponsibleCar(ResponsibleCarModel responsibleCar) {
-		this.responsibleCar = responsibleCar;
-	}
-
 	public LocalDateTime getRegistrationDate() {
 		return registrationDate;
 	}
@@ -102,33 +86,15 @@ public class ParkingSpotModel {
 		this.registrationDate = registrationDate;
 	}
 
-	public String getApartment() {
-		return apartment;
-	}
-
-	public void setApartment(String apartment) {
-		this.apartment = apartment;
-	}
-
-	public String getBlock() {
-		return block;
-	}
-
-	public void setBlock(String block) {
-		this.block = block;
-	}
-
 	@Override
 	public String toString() {
 		return "ParkingSpotModel [id=" + id + ", parkingSpotNumberA=" + parkingSpotNumberA + ", parkingSpotNumberB="
-				+ parkingSpotNumberB + ", cars=" + cars + ", responsibleCar=" + responsibleCar + ", registrationDate="
-				+ registrationDate + ", apartment=" + apartment + ", block=" + block + "]";
+				+ parkingSpotNumberB + ", cars=" + cars + ", registrationDate=" + registrationDate + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(apartment, block, cars, id, parkingSpotNumberA, parkingSpotNumberB, registrationDate,
-				responsibleCar);
+		return Objects.hash(cars, id, parkingSpotNumberA, parkingSpotNumberB, registrationDate);
 	}
 
 	@Override
@@ -140,13 +106,15 @@ public class ParkingSpotModel {
 		if (getClass() != obj.getClass())
 			return false;
 		ParkingSpotModel other = (ParkingSpotModel) obj;
-		return Objects.equals(apartment, other.apartment) && Objects.equals(block, other.block)
-				&& Objects.equals(cars, other.cars) && Objects.equals(id, other.id)
+		return Objects.equals(cars, other.cars) && Objects.equals(id, other.id)
 				&& Objects.equals(parkingSpotNumberA, other.parkingSpotNumberA)
 				&& Objects.equals(parkingSpotNumberB, other.parkingSpotNumberB)
-				&& Objects.equals(registrationDate, other.registrationDate)
-				&& Objects.equals(responsibleCar, other.responsibleCar);
+				&& Objects.equals(registrationDate, other.registrationDate);
 	}
+
+	
+
+	
 
 	
 	
