@@ -35,21 +35,14 @@ public class ParkingSpotController {
 	
 	@PostMapping
 	public ResponseEntity<Object> saveParkingSpot(@RequestBody @Valid ParkingSpotDto parkingSpotDto){
-//		if (parkingSpotService.existsByLicensePlateCar(parkingSpotDto.getCars()); {
-//			return ResponseEntity.status(HttpStatus.CONFLICT)
-//					.body("Conflict: License Plate Car is already in use!"); /* Check se placa já está cadastrada */
-//		}
+
 		if (parkingSpotService.existsByParkingSpotNumberA(parkingSpotDto.getParkingSpotNumberA())) {
 			return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Parking Spot A is already in use!");
 		}
 		if (parkingSpotService.existsByParkingSpotNumberB(parkingSpotDto.getParkingSpotNumberB())) {
 			return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Parking Spot B is already in use!");
 		}
-		if (parkingSpotService.existsByApartmentAndBlock(parkingSpotDto.getApartment(), parkingSpotDto.getBlock())) {
-			return ResponseEntity.status(HttpStatus.CONFLICT)
-					.body("Conflict: Parking Spot is already registered for this apartment/block!");
-		}
-		
+				
 		ParkingSpotModel parkingSpotModel = new ParkingSpotModel();
 		BeanUtils.copyProperties(parkingSpotDto, parkingSpotModel); /*Coverte Dtos para Model*/
 		parkingSpotModel.setRegistrationDate(LocalDateTime.now(ZoneId.of("UTC"))); /* è um set de Data */
@@ -101,9 +94,8 @@ public class ParkingSpotController {
 		parkingSpotModel.setParkingSpotNumberA(parkingSpotDto.getParkingSpotNumberA());
 		parkingSpotModel.setParkingSpotNumberB(parkingSpotDto.getParkingSpotNumberB());
 		parkingSpotModel.setCars(parkingSpotDto.getCars());
-		parkingSpotModel.setResponsibleCar(parkingSpotDto.getResponsibleCar());
-		parkingSpotModel.setApartment(parkingSpotDto.getApartment());	
-		parkingSpotModel.setBlock(parkingSpotDto.getBlock());
+		
+		
 		
 		return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.save(parkingSpotModel));
 
