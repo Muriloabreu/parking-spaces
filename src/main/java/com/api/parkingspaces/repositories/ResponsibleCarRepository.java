@@ -7,4 +7,6 @@ import com.api.parkingspaces.models.ResponsibleCarModel;
 public interface ResponsibleCarRepository extends JpaRepository<ResponsibleCarModel, Long>{
 	
 	boolean existsByCpf(String cpf);
+	
+	
 }
