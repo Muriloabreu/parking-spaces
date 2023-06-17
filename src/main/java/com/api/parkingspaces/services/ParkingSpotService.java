@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.api.parkingspaces.models.ParkingSpotModel;
+import com.api.parkingspaces.projections.ParkingSpotMinJoinProjections;
 
 public interface ParkingSpotService {
 	
@@ -13,6 +14,6 @@ public interface ParkingSpotService {
 	void delete(ParkingSpotModel parkingSpot);
 	boolean existsByParkingSpotNumberA(String name);
 	boolean existsByParkingSpotNumberB(String name);
-	boolean existsByApartmentAndBlock(String apartment, String block);
+	
 
 }
