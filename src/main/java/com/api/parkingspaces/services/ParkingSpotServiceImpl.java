@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.api.parkingspaces.models.ParkingSpotModel;
+import com.api.parkingspaces.projections.ParkingSpotMinJoinProjections;
 import com.api.parkingspaces.repositories.ParkingSpotRepository;
 
 import jakarta.transaction.Transactional;
@@ -55,10 +56,9 @@ public class ParkingSpotServiceImpl implements ParkingSpotService{
 		return rarkingSpotRepository.existsByParkingSpotNumberB(name);
 	}
 
-	@Override
-	public boolean existsByApartmentAndBlock(String apartment, String block) {
-		
-		return rarkingSpotRepository.existsByApartmentAndBlock(apartment, block);
-	}
+
+	
+
+	
 
 }
