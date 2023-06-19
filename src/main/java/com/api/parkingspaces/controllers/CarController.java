@@ -36,6 +36,10 @@ public class CarController {
 	@PostMapping
 	public ResponseEntity<Object> saveCar(@RequestBody @Valid CarDto carDto){
 		
+		if (carService.existsByLicensePlateCar(carDto.getLicensePlateCar())) {
+
+			return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: License Car is already in use!");
+		}
 		
 		CarModel carModel = new CarModel();
 		BeanUtils.copyProperties(carDto, carModel); /*Coverte Dtos para Model*/
