@@ -18,9 +18,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import com.api.parkingspaces.dto.ParkingSpotDto;
 import com.api.parkingspaces.models.ParkingSpotModel;
+import com.api.parkingspaces.projections.ParkingSpotAndBlockMinJoinProjections;
+import com.api.parkingspaces.services.CarService;
 import com.api.parkingspaces.services.ParkingSpotService;
 
 import jakarta.validation.Valid;
@@ -32,6 +37,8 @@ public class ParkingSpotController {
 	
 	@Autowired
 	ParkingSpotService parkingSpotService;
+	@Autowired
+	CarService carService;
 	
 	@PostMapping
 	public ResponseEntity<Object> saveParkingSpot(@RequestBody @Valid ParkingSpotDto parkingSpotDto){
@@ -66,6 +73,18 @@ public class ParkingSpotController {
 		return ResponseEntity.status(HttpStatus.OK).body(parkingSpotOptional.get());
 
 	}
+	
+	@GetMapping("/search/")
+	@ResponseBody
+	public ResponseEntity<List<ParkingSpotAndBlockMinJoinProjections>> findByBlock(@RequestParam(name = "block") String block) {
+		
+		List<ParkingSpotAndBlockMinJoinProjections> ParkingSpotAndBlockList = carService.findByParkingSpotAndBlock(block);
+		
+		return new ResponseEntity<List<ParkingSpotAndBlockMinJoinProjections>>(ParkingSpotAndBlockList, HttpStatus.OK);
+
+	}
+	
+	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> deleteParkingSpot(@PathVariable(value = "id") Long id) {
 
