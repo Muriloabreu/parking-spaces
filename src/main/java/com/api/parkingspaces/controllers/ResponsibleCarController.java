@@ -38,7 +38,7 @@ public class ResponsibleCarController {
 		
 		if (responsibleCarService.existsByCpf(responsibleCarDto.getCpf())) {
 			
-			return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Responsible Car is already in use!");
+			return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: CPF Responsible Car is already in use!");
 		}
 		
 		ResponsibleCarModel resposibleCaModel = new ResponsibleCarModel();
