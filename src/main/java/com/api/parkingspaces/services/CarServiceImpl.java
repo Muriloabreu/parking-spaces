@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.api.parkingspaces.models.CarModel;
+import com.api.parkingspaces.projections.ParkingSpotAndBlockMinJoinProjections;
 import com.api.parkingspaces.repositories.CarRepository;
 
 import jakarta.transaction.Transactional;
@@ -48,6 +49,12 @@ public class CarServiceImpl implements CarService{
 	public boolean existsByLicensePlateCar(String licensePlateCar) {
 		
 		return carRepository.existsByLicensePlateCar(licensePlateCar);
+	}
+
+	@Override
+	public List<ParkingSpotAndBlockMinJoinProjections> findByParkingSpotAndBlock(String block) {
+		
+		return carRepository.findByJoinCarsAndBlock(block);
 	}
 
 }
