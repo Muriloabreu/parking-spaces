@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.api.parkingspaces.models.ParkingSpotModel;
-import com.api.parkingspaces.projections.ParkingSpotMinJoinProjections;
+import com.api.parkingspaces.projections.ParkingSpotAndBlockMinJoinProjections;
 import com.api.parkingspaces.repositories.ParkingSpotRepository;
 
 import jakarta.transaction.Transactional;
