@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.api.parkingspaces.models.ParkingSpotModel;
-import com.api.parkingspaces.projections.ParkingSpotMinJoinProjections;
+import com.api.parkingspaces.projections.ParkingSpotAndBlockMinJoinProjections;
 
 public interface ParkingSpotService {
 	
