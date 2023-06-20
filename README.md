@@ -13,6 +13,11 @@ Os CRUDs são:
 - Cars;
 - Parking Spots;
 
+ ### Relatórios Customizados Utilizando Query Native
+Foi criado um relatórios onde podemos obter informações mais precisas.
+- 1° Podemos listar todas as vagas(Spots) só informando parte do nome do block;
+![Web 1](https://github.com/Muriloabreu/db-assets/blob/main/parkingSpot/relatorio_QueryNative01.png))
+
 
 # Tecnologias utilizadas
 ## Back end
