@@ -49,10 +49,20 @@ public class ParkingSpotController {
 		if (parkingSpotService.existsByParkingSpotNumberB(parkingSpotDto.getParkingSpotNumberB())) {
 			return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Parking Spot B is already in use!");
 		}
-				
 		ParkingSpotModel parkingSpotModel = new ParkingSpotModel();
 		BeanUtils.copyProperties(parkingSpotDto, parkingSpotModel); /*Coverte Dtos para Model*/
 		parkingSpotModel.setRegistrationDate(LocalDateTime.now(ZoneId.of("UTC"))); /* è um set de Data */
+		long count = parkingSpotDto.getCars().size();
+		if(count < 2) {
+			
+			parkingSpotModel.setStatusParkingSpotA(true);
+			parkingSpotModel.setStatusParkingSpotB(false);
+			
+		}else {
+			
+			parkingSpotModel.setStatusParkingSpotA(true);
+			parkingSpotModel.setStatusParkingSpotB(true);
+		}
 		return ResponseEntity.status(HttpStatus.CREATED).body(parkingSpotService.save(parkingSpotModel));
 	}
 	
