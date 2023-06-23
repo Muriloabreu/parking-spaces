@@ -40,7 +40,7 @@ public class CarModel {
 
 	public CarModel(Long id, String licensePlateCar, String brandCar, String modelCar, String colorCar,
 			LocalDateTime registrationDate, ResponsibleCarModel responsibleCarModel) {
-		super();
+		
 		this.id = id;
 		this.licensePlateCar = licensePlateCar;
 		this.brandCar = brandCar;
