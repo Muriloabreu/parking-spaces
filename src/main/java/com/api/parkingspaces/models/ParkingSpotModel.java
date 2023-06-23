@@ -26,6 +26,10 @@ public class ParkingSpotModel {
 	private String parkingSpotNumberA;
 	@Column(nullable = true, unique = true, length = 10)
 	private String parkingSpotNumberB;
+	@Column(nullable = false)
+	private boolean statusParkingSpotA = true;
+	@Column(nullable = false)
+	private boolean statusParkingSpotB = true;
 	@OneToMany
 	@JoinColumn(name = "parkingspot_id")
 	List<CarModel> cars = new ArrayList<>();
@@ -37,16 +41,19 @@ public class ParkingSpotModel {
 	public ParkingSpotModel() {		
 	}
 
-	public ParkingSpotModel(Long id, String parkingSpotNumberA, String parkingSpotNumberB, List<CarModel> cars,
-			 LocalDateTime registrationDate) {
-		super();
+	public ParkingSpotModel(Long id, String parkingSpotNumberA, String parkingSpotNumberB, boolean statusParkingSpotA,
+			boolean statusParkingSpotB, List<CarModel> cars, LocalDateTime registrationDate) {
+		
 		this.id = id;
 		this.parkingSpotNumberA = parkingSpotNumberA;
 		this.parkingSpotNumberB = parkingSpotNumberB;
+		this.statusParkingSpotA = statusParkingSpotA;
+		this.statusParkingSpotB = statusParkingSpotB;
 		this.cars = cars;
 		this.registrationDate = registrationDate;
-		
 	}
+
+
 
 
 	public Long getId() {
@@ -69,6 +76,22 @@ public class ParkingSpotModel {
 	public void setParkingSpotNumberB(String parkingSpotNumberB) {
 		this.parkingSpotNumberB = parkingSpotNumberB;
 	}
+	
+	public boolean isStatusParkingSpotA() {
+		return statusParkingSpotA;
+	}
+
+	public void setStatusParkingSpotA(boolean statusParkingSpotA) {
+		this.statusParkingSpotA = statusParkingSpotA;
+	}
+
+	public boolean isStatusParkingSpotB() {
+		return statusParkingSpotB;
+	}
+
+	public void setStatusParkingSpotB(boolean statusParkingSpotB) {
+		this.statusParkingSpotB = statusParkingSpotB;
+	}
 
 	public List<CarModel> getCars() {
 		return cars;
@@ -86,31 +109,9 @@ public class ParkingSpotModel {
 		this.registrationDate = registrationDate;
 	}
 
-	@Override
-	public String toString() {
-		return "ParkingSpotModel [id=" + id + ", parkingSpotNumberA=" + parkingSpotNumberA + ", parkingSpotNumberB="
-				+ parkingSpotNumberB + ", cars=" + cars + ", registrationDate=" + registrationDate + "]";
-	}
+	
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(cars, id, parkingSpotNumberA, parkingSpotNumberB, registrationDate);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ParkingSpotModel other = (ParkingSpotModel) obj;
-		return Objects.equals(cars, other.cars) && Objects.equals(id, other.id)
-				&& Objects.equals(parkingSpotNumberA, other.parkingSpotNumberA)
-				&& Objects.equals(parkingSpotNumberB, other.parkingSpotNumberB)
-				&& Objects.equals(registrationDate, other.registrationDate);
-	}
+	
 
 	
 
