@@ -44,8 +44,6 @@ public class ParkingSpotTest {
 	ps1.setCars(cars);
 	
 	long count = cars.size();
-	
-	
 		
 		if(count < 2) {
 			
@@ -55,10 +53,7 @@ public class ParkingSpotTest {
 		}else {
 			ps1.setStatusParkingSpotA(true);
 			ps1.setStatusParkingSpotB(true);
-		}
-		
-	
-		
+		}		
 		
 	ps1.setRegistrationDate(LocalDateTime.now(ZoneId.of("UTC")));
 	
