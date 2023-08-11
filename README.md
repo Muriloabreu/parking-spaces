@@ -5,7 +5,7 @@
 # Sobre o projeto
 
 Parking Spaces é uma API REST.
-Feita em Java utilizando o Fremawork Spring boot com o proposito de realizar Vários CRUDs para cadastrar vagas de estacionamento(Parking Spot) e codomínios.
+Feita em Java utilizando o Fremawork Spring boot com o proposito de realizar Vários CRUDs para cadastrar vagas de estacionamento(Parking Spot) em codomínios.
 Nessa API existe alguns CRUDs;
 Os CRUDs são:
 
